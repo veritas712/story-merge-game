@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1e2440" />
+    <title>合成我们的故事</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PHOTO MERGE · 11 LEVELS</p>
+          <h1>合成我们的故事</h1>
+          <p class="subtitle">让每一次相遇，都变成下一个故事。</p>
+        </div>
+        <div class="actions">
+          <button id="pauseBtn" class="ghost-btn" type="button">暂停</button>
+          <button id="soundBtn" class="ghost-btn" type="button" aria-pressed="true">音效：开</button>
+          <button id="restartBtn" class="primary-btn" type="button">重新开始</button>
+        </div>
+      </header>
+
+      <section class="scorebar" aria-label="分数信息">
+        <div class="score-card"><span>本局得分</span><strong id="score">0</strong></div>
+        <div class="score-card"><span>历史最高</span><strong id="best">0</strong></div>
+        <div class="next-card"><div class="next-label">当前投放</div><div id="currentPreview" class="mini-preview"></div><div id="currentName">第 1 级</div></div>
+        <div class="next-card"><div class="next-label">下一个</div><div id="nextPreview" class="mini-preview"></div><div id="nextName">第 1 级</div></div>
+      </section>
+
+      <section class="game-layout">
+        <div class="game-panel">
+          <div class="canvas-wrap">
+            <canvas id="gameCanvas" aria-label="合成游戏区域"></canvas>
+            <div class="danger-label">危险线</div>
+            <div id="pausedOverlay" class="overlay hidden"><strong>已暂停</strong><span>点击继续返回游戏</span></div>
+            <div id="gameOverOverlay" class="overlay hidden"><strong>故事暂告一段落</strong><span id="finalScore">本局得分 0</span><button id="overlayRestart" class="primary-btn" type="button">再来一局</button></div>
+          </div>
+          <p class="hint">移动鼠标或手指选择位置，点击 / 轻触 / 空格投放。相同照片相遇会合成升级。</p>
+        </div>
+        <aside class="progress-panel">
+          <div class="panel-heading"><h2>成长相册</h2><span id="progressText">1 / 11</span></div>
+          <div id="levelTrack" class="level-track"></div>
+          <div class="legend"><span class="dot dot-ready"></span>已解锁 <span class="dot dot-locked"></span>待解锁</div>
+        </aside>
+      </section>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
